@@ -7,7 +7,7 @@ class Player extends Character {
      * Inicializa un jugador
      * @param game {Game} La instancia del juego al que pertenece el jugador
      */
-    constructor (game) {
+    constructor(game) {
         const height = PLAYER_HEIGHT * game.width / 100,
             width = PLAYER_WIDTH * game.width / 100,
             x = game.width / 2 - width / 2,
@@ -22,22 +22,22 @@ class Player extends Character {
     /**
      * Actualiza los atributos de posición del jugador y los disparos en función de las teclas pulsadas
      */
-    update () {
+    update() {
         if (!this.dead) {
             switch (this.game.keyPressed) {
-            case KEY_LEFT:
-                if (this.x > this.speed) {
-                    this.x -= this.speed;
-                }
-                break;
-            case KEY_RIGHT:
-                if (this.x < this.game.width - this.width - this.speed) {
-                    this.x += this.speed;
-                }
-                break;
-            case KEY_SHOOT:
-                this.game.shoot(this);
-                break;
+                case KEY_LEFT:
+                    if (this.x > this.speed) {
+                        this.x -= this.speed;
+                    }
+                    break;
+                case KEY_RIGHT:
+                    if (this.x < this.game.width - this.width - this.speed) {
+                        this.x += this.speed;
+                    }
+                    break;
+                case KEY_SHOOT:
+                    this.game.shoot(this);
+                    break;
             }
         }
     }
@@ -51,6 +51,7 @@ class Player extends Character {
                 this.game.endGame();
             }, 2000);
             super.collide();
+            this.game.lives--;
         }
     }
 }
