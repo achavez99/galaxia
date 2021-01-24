@@ -27,9 +27,18 @@ html {
 .gamebutton {
     border: none;
     background: #ddd;
-    color: #333;
+    color: #fff;
     padding: 10px 20px;
     outline: none;
     font-family: monospace;
     cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.2s;
+}
+
+.gamebutton:hover {
+    background: rgb(159, 73, 230);
+    box-shadow: #d684f7;
+    transition-delay: 0.1s;
 }
